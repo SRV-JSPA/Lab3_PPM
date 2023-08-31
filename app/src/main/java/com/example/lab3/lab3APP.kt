@@ -149,6 +149,7 @@ fun Isesion() {
 
         Button(
             onClick = {
+
                 // Verificar usuario y contraseña
                 if (usernameInput == savedUsername && passwordInput == savedPassword) {
                     // Iniciar sesión exitosamente
@@ -157,6 +158,8 @@ fun Isesion() {
                     // Mostrar error si no coinciden
                     showError = true
                 }
+
+                pantallalog = 1
             },
             modifier = Modifier.fillMaxWidth()
         ) {
@@ -181,12 +184,67 @@ fun Isesion() {
         }
 
         when (pantallalog) {
+            1 -> menu { selectedMenuItem ->
+
+                when (selectedMenuItem) {
+                    1 -> {pantallalog =3}
+                    2 -> {}
+
+                }
+            }
             2 -> crearUsuario { newUsername, newPassword ->
                 savedUsername = newUsername
                 savedPassword = newPassword
                 pantallalog = 0
             }
+
+            3 -> boda()
         }
+    }
+}
+
+@Composable
+fun menu(onMenuItemClick: (Int) -> Unit){
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Button(
+            onClick = { onMenuItemClick(1) },
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text(text = "Boda")
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Button(
+            onClick = { onMenuItemClick(2) },
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text(text = "Amor")
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Button(
+            onClick = { onMenuItemClick(2) },
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text(text = "Graduación")
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Button(
+            onClick = { onMenuItemClick(2) },
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text(text = "Cumpleaños")
+        }
+
+
     }
 }
 
