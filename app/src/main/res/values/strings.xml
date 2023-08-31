@@ -2,4 +2,6 @@
     <string name="app_name">Lab3</string>
     <string name="title_activity_main2">MainActivity2</string>
     <string name="title_activity_cartas_app">CartasApp</string>
+    <string name="title_activity_cartitas_app">CartitasApp</string>
+    <string name="title_activity_lab3_app">lab3APP</string>
 </resources>
