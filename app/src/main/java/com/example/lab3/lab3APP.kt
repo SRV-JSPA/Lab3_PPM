@@ -257,6 +257,7 @@ fun boda (){
         painter = imgb1p,
         contentDescription = "Boda 1"
     )
+
     val imgb2 = R.drawable.b2
     val imgb2p = painterResource(id = imgb2)
 
@@ -264,6 +265,7 @@ fun boda (){
         painter = imgb2p,
         contentDescription = "Boda 2"
     )
+
     val imgb3 = R.drawable.b3
     val imgb3p = painterResource(id = imgb3)
 
@@ -289,6 +291,138 @@ fun boda (){
     )
 
 }
+
+@Composable
+fun cumple (){
+    val imgc1 = R.drawable.c1
+    val imgc1p = painterResource(id = imgc1)
+
+    Image(
+        painter = imgc1p,
+        contentDescription = "Cumpleaños 1"
+    )
+    val imgc2 = R.drawable.c2
+    val imgc2p = painterResource(id = imgc2)
+
+    Image(
+        painter = imgc2p,
+        contentDescription = "Cumpleaños 2"
+    )
+    val imgc3 = R.drawable.c3
+    val imgc3p = painterResource(id = imgc3)
+
+    Image(
+        painter = imgc3p,
+        contentDescription = "Cumpleaños 3"
+    )
+
+    val imgc4 = R.drawable.c4
+    val imgc4p = painterResource(id = imgc4)
+
+    Image(
+        painter = imgc4p,
+        contentDescription = "Cumpleaños 4"
+    )
+
+    val imgc5 = R.drawable.c5
+    val imgc5p = painterResource(id = imgc5)
+
+    Image(
+        painter = imgc5p,
+        contentDescription = "Cumpleaños 5"
+    )
+
+}
+
+@Composable
+fun amor (){
+    val imga1 = R.drawable.a1
+    val imga1p = painterResource(id = imga1)
+
+    Image(
+        painter = imga1p,
+        contentDescription = "Amor 1"
+    )
+
+    val imga2 = R.drawable.a2
+    val imga2p = painterResource(id = imga2)
+
+    Image(
+        painter = imga2p,
+        contentDescription = "Amor 2"
+    )
+
+    val imga3 = R.drawable.a3
+    val imga3p = painterResource(id = imga3)
+
+    Image(
+        painter = imga3p,
+        contentDescription = "Amor 3"
+    )
+
+    val imga4 = R.drawable.a4
+    val imga4p = painterResource(id = imga4)
+
+    Image(
+        painter = imga4p,
+        contentDescription = "Amor 4"
+    )
+
+    val imga5 = R.drawable.a5
+    val imga5p = painterResource(id = imga5)
+
+    Image(
+        painter = imga5p,
+        contentDescription = "Amor 5"
+    )
+
+}
+
+@Composable
+fun graduacion (){
+    val imgg1 = R.drawable.g1
+    val imgg1p = painterResource(id = imgg1)
+
+    Image(
+        painter = imgg1p,
+        contentDescription = "Graduacion 1"
+    )
+
+    val imgg2 = R.drawable.g2
+    val imgg2p = painterResource(id = imgg2)
+
+    Image(
+        painter = imgg2p,
+        contentDescription = "Graduacion 2"
+    )
+
+    val imgg3 = R.drawable.g3
+    val imgg3p = painterResource(id = imgg3)
+
+    Image(
+        painter = imgg3p,
+        contentDescription = "Graduacion 3"
+    )
+
+    val imgg4 = R.drawable.g4
+    val imgg4p = painterResource(id = imgg4)
+
+    Image(
+        painter = imgg4p,
+        contentDescription = "Graduacion 4"
+    )
+
+    val imgg5 = R.drawable.g5
+    val imgg5p = painterResource(id = imgg5)
+
+    Image(
+        painter = imgg5p,
+        contentDescription = "Graduacion 5"
+    )
+
+}
+
+
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
