@@ -422,7 +422,6 @@ fun graduacion (){
 
 }
 
-
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
