@@ -36,6 +36,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.lab3.ui.theme.Lab3Theme
+import androidx.compose.foundation.Image
+import androidx.compose.ui.res.painterResource
 
 class lab3APP : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -188,7 +190,45 @@ fun Isesion() {
     }
 }
 
-fun cumple (){
+@Composable
+fun boda (){
+    val imgb1 = R.drawable.b1
+    val imgb1p = painterResource(id = imgb1)
+
+    Image(
+        painter = imgb1p,
+        contentDescription = "Boda 1"
+    )
+    val imgb2 = R.drawable.b2
+    val imgb2p = painterResource(id = imgb2)
+
+    Image(
+        painter = imgb2p,
+        contentDescription = "Boda 2"
+    )
+    val imgb3 = R.drawable.b3
+    val imgb3p = painterResource(id = imgb3)
+
+    Image(
+        painter = imgb3p,
+        contentDescription = "Boda 3"
+    )
+
+    val imgb4 = R.drawable.b4
+    val imgb4p = painterResource(id = imgb4)
+
+    Image(
+        painter = imgb4p,
+        contentDescription = "Boda 4"
+    )
+
+    val imgb5 = R.drawable.b5
+    val imgb5p = painterResource(id = imgb5)
+
+    Image(
+        painter = imgb5p,
+        contentDescription = "Boda 5"
+    )
 
 }
 @Preview(showBackground = true)
