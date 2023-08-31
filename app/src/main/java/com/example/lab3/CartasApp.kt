@@ -58,7 +58,6 @@ class LogIn : ComponentActivity() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun crearUsuario(onUserCreated: (String, String) -> Unit) {
-    var pantallacrear by remember { mutableStateOf(0) }
     var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     Column(
@@ -93,7 +92,6 @@ fun crearUsuario(onUserCreated: (String, String) -> Unit) {
 
         Button(
             onClick = {
-
                 // Llamar a la función proporcionada para guardar los datos
                 onUserCreated(username, password)
 
