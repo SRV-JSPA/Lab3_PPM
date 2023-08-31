@@ -5,4 +5,7 @@
     <string name="title_activity_cartitas_app">CartitasApp</string>
     <string name="title_activity_lab3_app">lab3APP</string>
     <string name="title_activity_cumpleaños">Cumpleaños</string>
+    <string name="title_activity_boda">Boda</string>
+    <string name="title_activity_graduacion">Graduacion</string>
+    <string name="title_activity_amor">Amor</string>
 </resources>
