@@ -117,6 +117,8 @@ fun Isesion() {
     var passwordInput by remember { mutableStateOf("") }
     var showError by remember { mutableStateOf(false) }
 
+
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -192,7 +194,7 @@ fun Isesion() {
 
                 }
             }
-            2 -> crearUsuario { newUsername, newPassword ->
+                2 -> crearUsuario { newUsername, newPassword ->
                 savedUsername = newUsername
                 savedPassword = newPassword
                 pantallalog = 0
