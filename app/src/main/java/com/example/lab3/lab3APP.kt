@@ -188,6 +188,9 @@ fun Isesion() {
     }
 }
 
+fun cumple (){
+    
+}
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
