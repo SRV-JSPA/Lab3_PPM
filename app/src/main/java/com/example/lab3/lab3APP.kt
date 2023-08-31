@@ -294,47 +294,7 @@ fun boda (){
 
 }
 
-@Composable
-fun cumple (){
-    val imgc1 = R.drawable.c1
-    val imgc1p = painterResource(id = imgc1)
 
-    Image(
-        painter = imgc1p,
-        contentDescription = "Cumpleaños 1"
-    )
-    val imgc2 = R.drawable.c2
-    val imgc2p = painterResource(id = imgc2)
-
-    Image(
-        painter = imgc2p,
-        contentDescription = "Cumpleaños 2"
-    )
-    val imgc3 = R.drawable.c3
-    val imgc3p = painterResource(id = imgc3)
-
-    Image(
-        painter = imgc3p,
-        contentDescription = "Cumpleaños 3"
-    )
-
-    val imgc4 = R.drawable.c4
-    val imgc4p = painterResource(id = imgc4)
-
-    Image(
-        painter = imgc4p,
-        contentDescription = "Cumpleaños 4"
-    )
-
-    val imgc5 = R.drawable.c5
-    val imgc5p = painterResource(id = imgc5)
-
-    Image(
-        painter = imgc5p,
-        contentDescription = "Cumpleaños 5"
-    )
-
-}
 
 @Composable
 fun amor (){
