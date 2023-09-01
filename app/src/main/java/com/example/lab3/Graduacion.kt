@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -33,44 +34,45 @@ class Graduacion : ComponentActivity() {
 
 @Composable
 fun graduacion (){
-    val imgg1 = R.drawable.g1
-    val imgg1p = painterResource(id = imgg1)
+    Column {
+        val imgg1 = R.drawable.g1
+        val imgg1p = painterResource(id = imgg1)
 
-    Image(
-        painter = imgg1p,
-        contentDescription = "Graduacion 1"
-    )
+        Image(
+            painter = imgg1p,
+            contentDescription = "Graduacion 1"
+        )
 
-    val imgg2 = R.drawable.g2
-    val imgg2p = painterResource(id = imgg2)
+        val imgg2 = R.drawable.g2
+        val imgg2p = painterResource(id = imgg2)
 
-    Image(
-        painter = imgg2p,
-        contentDescription = "Graduacion 2"
-    )
+        Image(
+            painter = imgg2p,
+            contentDescription = "Graduacion 2"
+        )
 
-    val imgg3 = R.drawable.g3
-    val imgg3p = painterResource(id = imgg3)
+        val imgg3 = R.drawable.g3
+        val imgg3p = painterResource(id = imgg3)
 
-    Image(
-        painter = imgg3p,
-        contentDescription = "Graduacion 3"
-    )
+        Image(
+            painter = imgg3p,
+            contentDescription = "Graduacion 3"
+        )
 
-    val imgg4 = R.drawable.g4
-    val imgg4p = painterResource(id = imgg4)
+        val imgg4 = R.drawable.g4
+        val imgg4p = painterResource(id = imgg4)
 
-    Image(
-        painter = imgg4p,
-        contentDescription = "Graduacion 4"
-    )
+        Image(
+            painter = imgg4p,
+            contentDescription = "Graduacion 4"
+        )
 
-    val imgg5 = R.drawable.g5
-    val imgg5p = painterResource(id = imgg5)
+        val imgg5 = R.drawable.g5
+        val imgg5p = painterResource(id = imgg5)
 
-    Image(
-        painter = imgg5p,
-        contentDescription = "Graduacion 5"
-    )
-
+        Image(
+            painter = imgg5p,
+            contentDescription = "Graduacion 5"
+        )
+    }
 }
