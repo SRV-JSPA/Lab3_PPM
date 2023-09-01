@@ -18,13 +18,8 @@ import androidx.navigation.navArgs
          navController = navController,
          startDestination = Screens.Home.ruta
      )   {
-        composable(
-            route = Screens.Home.ruta
-        ){
-            Isesion(navController = navController)
-        }
          composable(
-             route = Screens.SignIn.ruta,
+             route = Screens.Home.ruta,
              arguments = listOf(
                  navArgument(USUARIO_ARGUMENT_KEY1){
                      type = NavType.StringType
@@ -36,9 +31,15 @@ import androidx.navigation.navArgs
          ){
              Log.d("Args", it.arguments?.getString(USUARIO_ARGUMENT_KEY1).toString())
              Log.d("Args", it.arguments?.getString(USUARIO_ARGUMENT_KEY2).toString())
-             crearUsuario(navController=navController)
+             Isesion(navController=navController)
 
          }
+        composable(
+            route = Screens.SignIn.ruta
+        ){
+            crearUsuario(navController = navController)
+        }
+
          composable(
              route = Screens.Boda.ruta
          ){

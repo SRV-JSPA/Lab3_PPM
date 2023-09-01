@@ -133,10 +133,7 @@ fun Isesion(navController:NavController) {
 
         Button(
             onClick = {
-                navController.navigate(route = Screens.SignIn.passUserAndPassword(
-                    user = "Juan",
-                    password = "123"
-                ))
+                navController.navigate(route = Screens.SignIn.ruta)
             },
             modifier = Modifier
                 .fillMaxWidth()

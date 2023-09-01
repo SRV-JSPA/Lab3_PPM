@@ -42,7 +42,7 @@ class CrearUsuario : ComponentActivity() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun crearUsuario(navController: NavController/**onUserCreated: (String, String) -> Unit**/) {
+fun crearUsuario(navController: NavController) {
     var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var error by remember { mutableStateOf(false) }
@@ -88,10 +88,12 @@ fun crearUsuario(navController: NavController/**onUserCreated: (String, String) 
                 if(username==""|| password==""){
                     error = true
                 } else{
-                    navController.popBackStack()
+                    navController.navigate(route = Screens.Home.passUserAndPassword(
+                        user = username,
+                        password = password
+                    ))
                 }
-                //Llamar a la función proporcionada para guardar los datos
-                //onUserCreated(username, password)
+
 
             },
             modifier = Modifier.fillMaxWidth()
