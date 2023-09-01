@@ -24,17 +24,19 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.lab3.ui.theme.Lab3Theme
 
 
 class CrearUsuario : ComponentActivity() {
+    lateinit var navController: NavHostController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             Lab3Theme {
-                // A surface container using the 'background' color from the theme
-
+                navController = rememberNavController()
+                setupNavGraph(navController = navController)
             }
         }
     }
@@ -88,7 +90,7 @@ fun crearUsuario(navController: NavController) {
                 if(username==""|| password==""){
                     error = true
                 } else{
-                    navController.navigate(route = Screens.Home.passUserAndPassword(
+                    navController.navigate(route = Screens.LogIn.passUserAndPassword(
                         user = username,
                         password = password
                     ))

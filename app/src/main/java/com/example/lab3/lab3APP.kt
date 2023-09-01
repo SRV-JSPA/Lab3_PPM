@@ -45,14 +45,13 @@ import androidx.navigation.compose.rememberNavController
 
 class lab3APP : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        lateinit var navController: NavHostController
+
         super.onCreate(savedInstanceState)
 
         setContent {
 
             Lab3Theme {
-                navController = rememberNavController()
-                setupNavGraph(navController = navController)
+
 
             }
         }
@@ -64,12 +63,12 @@ class lab3APP : ComponentActivity() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Isesion(navController:NavController) {
+fun Isesion(navController:NavController, usuario:String, password:String) {
     var pantallalog by remember { mutableStateOf(0) }
 
     // Agregar variables para almacenar datos de usuario y contraseña
-    var savedUsername by remember { mutableStateOf("") }
-    var savedPassword by remember { mutableStateOf("") }
+    var savedUsername = usuario
+    var savedPassword = password
 
     var usernameInput by remember { mutableStateOf("") }
     var passwordInput by remember { mutableStateOf("") }
@@ -117,6 +116,7 @@ fun Isesion(navController:NavController) {
 
                 // Verificar usuario y contraseña
                 if (usernameInput == savedUsername && passwordInput == savedPassword) {
+                    pantallalog = 1
                     // Iniciar sesión exitosamente
                     showError = false
                 } else {
@@ -124,23 +124,13 @@ fun Isesion(navController:NavController) {
                     showError = true
                 }
 
-                pantallalog = 1
+
             },
             modifier = Modifier.fillMaxWidth()
         ) {
             Text(text = "Iniciar sesión")
         }
 
-        Button(
-            onClick = {
-                navController.navigate(route = Screens.SignIn.ruta)
-            },
-            modifier = Modifier
-                .fillMaxWidth()
-
-        ) {
-            Text(text = "Crear Usuario")
-        }
 
         if (showError) {
             Text(
@@ -182,7 +172,8 @@ fun Isesion(navController:NavController) {
 fun GreetingPreview() {
     Lab3Theme {
         Isesion(
-            navController = rememberNavController()
-        )
+            navController = rememberNavController(),
+                "Usuario","Contraseña"
+            )
     }
 }
