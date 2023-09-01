@@ -47,5 +47,14 @@ import androidx.navigation.navArgs
          ){
              Boda()
          }
+
+
+         composable(
+             route = Screens.EditCartas.ruta
+         ){
+             EditCartas()
+         }
+
+
      }
     }

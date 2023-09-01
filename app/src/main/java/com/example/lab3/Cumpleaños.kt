@@ -13,64 +13,83 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.example.lab3.ui.theme.Lab3Theme
 
 class Cumpleaños : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        lateinit var navController: NavHostController
         super.onCreate(savedInstanceState)
         setContent {
             Lab3Theme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    cumple()
-                }
+                navController = rememberNavController()
+                setupNavGraph(navController = navController)
             }
         }
     }
 }
 
 @Composable
-fun cumple (){
+fun cumple (navController: NavController){
     Column {
         val imgc1 = R.drawable.c1
         val imgc1p = painterResource(id = imgc1)
 
-        Image(
+        Cimagen(
             painter = imgc1p,
-            contentDescription = "Cumpleaños 1"
+            contentDescription = "cumple 1",
+            onClick = {
+                navController.navigate(route = Screens.EditCartas.ruta)
+            }
         )
         val imgc2 = R.drawable.c2
         val imgc2p = painterResource(id = imgc2)
 
-        Image(
+
+        Cimagen(
             painter = imgc2p,
-            contentDescription = "Cumpleaños 2"
+            contentDescription = "cumple 2",
+            onClick = {
+                navController.navigate(route = Screens.EditCartas.ruta)
+            }
         )
+
         val imgc3 = R.drawable.c3
         val imgc3p = painterResource(id = imgc3)
 
-        Image(
+
+        Cimagen(
             painter = imgc3p,
-            contentDescription = "Cumpleaños 3"
+            contentDescription = "cumple 3",
+            onClick = {
+                navController.navigate(route = Screens.EditCartas.ruta)
+            }
         )
 
         val imgc4 = R.drawable.c4
         val imgc4p = painterResource(id = imgc4)
 
-        Image(
+
+        Cimagen(
             painter = imgc4p,
-            contentDescription = "Cumpleaños 4"
+            contentDescription = "cumple 4",
+            onClick = {
+                navController.navigate(route = Screens.EditCartas.ruta)
+            }
         )
 
         val imgc5 = R.drawable.c5
         val imgc5p = painterResource(id = imgc5)
 
-        Image(
+
+        Cimagen(
             painter = imgc5p,
-            contentDescription = "Cumpleaños 5"
+            contentDescription = "cumple 5",
+            onClick = {
+                navController.navigate(route = Screens.EditCartas.ruta)
+            }
         )
     }
 }

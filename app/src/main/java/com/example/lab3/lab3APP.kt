@@ -161,7 +161,7 @@ fun Isesion(navController:NavController, usuario:String, password:String) {
             pantallalog = 0
         }**/
 
-        3 -> boda()
+
     }
 }
 

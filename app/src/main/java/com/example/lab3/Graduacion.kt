@@ -13,66 +13,80 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.example.lab3.ui.theme.Lab3Theme
 
 class Graduacion : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        lateinit var navController: NavHostController
         super.onCreate(savedInstanceState)
         setContent {
             Lab3Theme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    graduacion()
-                }
+                navController = rememberNavController()
+                setupNavGraph(navController = navController)
             }
         }
     }
 }
 
 @Composable
-fun graduacion (){
+fun graduacion (navController: NavController){
     Column {
         val imgg1 = R.drawable.g1
         val imgg1p = painterResource(id = imgg1)
 
-        Image(
+
+        Cimagen(
             painter = imgg1p,
-            contentDescription = "Graduacion 1"
+            contentDescription = "grad 1",
+            onClick = {
+                navController.navigate(route = Screens.EditCartas.ruta)
+            }
         )
 
         val imgg2 = R.drawable.g2
         val imgg2p = painterResource(id = imgg2)
 
-        Image(
+        Cimagen(
             painter = imgg2p,
-            contentDescription = "Graduacion 2"
+            contentDescription = "grad 2",
+            onClick = {
+                navController.navigate(route = Screens.EditCartas.ruta)
+            }
         )
 
         val imgg3 = R.drawable.g3
         val imgg3p = painterResource(id = imgg3)
 
-        Image(
+        Cimagen(
             painter = imgg3p,
-            contentDescription = "Graduacion 3"
+            contentDescription = "grad 3",
+            onClick = {
+                navController.navigate(route = Screens.EditCartas.ruta)
+            }
         )
-
         val imgg4 = R.drawable.g4
         val imgg4p = painterResource(id = imgg4)
 
-        Image(
+        Cimagen(
             painter = imgg4p,
-            contentDescription = "Graduacion 4"
+            contentDescription = "grad 4",
+            onClick = {
+                navController.navigate(route = Screens.EditCartas.ruta)
+            }
         )
 
         val imgg5 = R.drawable.g5
         val imgg5p = painterResource(id = imgg5)
 
-        Image(
+        Cimagen(
             painter = imgg5p,
-            contentDescription = "Graduacion 5"
+            contentDescription = "grad 5",
+            onClick = {
+                navController.navigate(route = Screens.EditCartas.ruta)
+            }
         )
     }
 }
