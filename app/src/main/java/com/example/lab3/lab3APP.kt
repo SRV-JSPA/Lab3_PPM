@@ -145,23 +145,7 @@ fun Isesion(navController:NavController, usuario:String, password:String) {
 
 
     when (pantallalog) {
-        1 -> menu { selectedMenuItem ->
-
-            when (selectedMenuItem) {
-                1 -> {pantallalog = 3}
-                2 -> {}
-
-            }
-        }
-        2 -> println("a")
-            //crearUsuario()
-            /**{ newUsername, newPassword ->
-            savedUsername = newUsername
-            savedPassword = newPassword
-            pantallalog = 0
-        }**/
-
-
+        1 -> menu(navController)
     }
 }
 

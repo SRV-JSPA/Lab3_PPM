@@ -15,6 +15,9 @@ sealed class Screens(val ruta:String){
     }
 
     object Boda: Screens(ruta = "boda")
+    object Cumple: Screens(ruta = "cumple")
+    object Amor: Screens(ruta = "amor")
+    object Grad: Screens(ruta = "grad")
 
     object EditCartas: Screens(ruta = "editCartas")
 }

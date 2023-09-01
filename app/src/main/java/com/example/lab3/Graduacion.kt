@@ -20,12 +20,9 @@ import com.example.lab3.ui.theme.Lab3Theme
 
 class Graduacion : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        lateinit var navController: NavHostController
         super.onCreate(savedInstanceState)
         setContent {
             Lab3Theme {
-                navController = rememberNavController()
-                setupNavGraph(navController = navController)
             }
         }
     }

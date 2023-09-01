@@ -18,6 +18,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.example.lab3.ui.theme.Lab3Theme
 
 class menu : ComponentActivity() {
@@ -26,26 +27,29 @@ class menu : ComponentActivity() {
         setContent {
             Lab3Theme {
                 // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
 
-                }
             }
         }
     }
 }
 
 @Composable
-fun menu(onMenuItemClick: (Int) -> Unit){
+fun menu(navController:NavController){
+    Surface(
+        modifier = Modifier.fillMaxSize(),
+        color = MaterialTheme.colorScheme.background
+    ) {
+
+    }
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Button(
-            onClick = { onMenuItemClick(1) },
+            onClick = {
+                navController.navigate(route = Screens.Boda.ruta)
+                      },
             modifier = Modifier.fillMaxWidth()
         ) {
             Text(text = "Boda")
@@ -54,7 +58,9 @@ fun menu(onMenuItemClick: (Int) -> Unit){
         Spacer(modifier = Modifier.height(16.dp))
 
         Button(
-            onClick = { onMenuItemClick(2) },
+            onClick = {
+                navController.navigate(route = Screens.Amor.ruta)
+                      },
             modifier = Modifier.fillMaxWidth()
         ) {
             Text(text = "Amor")
@@ -63,7 +69,9 @@ fun menu(onMenuItemClick: (Int) -> Unit){
         Spacer(modifier = Modifier.height(16.dp))
 
         Button(
-            onClick = { onMenuItemClick(2) },
+            onClick = {
+                navController.navigate(route = Screens.Grad.ruta)
+                      },
             modifier = Modifier.fillMaxWidth()
         ) {
             Text(text = "Graduación")
@@ -72,7 +80,9 @@ fun menu(onMenuItemClick: (Int) -> Unit){
         Spacer(modifier = Modifier.height(16.dp))
 
         Button(
-            onClick = { onMenuItemClick(2) },
+            onClick = {
+                navController.navigate(route = Screens.Cumple.ruta)
+                      },
             modifier = Modifier.fillMaxWidth()
         ) {
             Text(text = "Cumpleaños")

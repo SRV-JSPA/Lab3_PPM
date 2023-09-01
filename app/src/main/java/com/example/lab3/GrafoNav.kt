@@ -45,7 +45,25 @@ import androidx.navigation.navArgs
          composable(
              route = Screens.Boda.ruta
          ){
-             Boda()
+             boda(navController = navController)
+         }
+
+         composable(
+             route = Screens.Grad.ruta
+         ){
+             graduacion(navController = navController)
+         }
+
+         composable(
+             route = Screens.Amor.ruta
+         ){
+             amor(navController = navController)
+         }
+
+         composable(
+             route = Screens.Cumple.ruta
+         ){
+             cumple(navController = navController)
          }
 
 
