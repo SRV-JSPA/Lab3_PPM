@@ -23,7 +23,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.lab3.ui.theme.Lab3Theme
+
 
 class CrearUsuario : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,12 +34,7 @@ class CrearUsuario : ComponentActivity() {
         setContent {
             Lab3Theme {
                 // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
 
-                }
             }
         }
     }
@@ -44,9 +42,17 @@ class CrearUsuario : ComponentActivity() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun crearUsuario(onUserCreated: (String, String) -> Unit) {
+fun crearUsuario(navController: NavController/**onUserCreated: (String, String) -> Unit**/) {
     var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
+    var error by remember { mutableStateOf(false) }
+
+
+    Surface(
+        modifier = Modifier.fillMaxSize(),
+        color = MaterialTheme.colorScheme.background
+    ) {
+    }
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -79,13 +85,25 @@ fun crearUsuario(onUserCreated: (String, String) -> Unit) {
 
         Button(
             onClick = {
-                // Llamar a la función proporcionada para guardar los datos
-                onUserCreated(username, password)
+                if(username==""|| password==""){
+                    error = true
+                } else{
+                    navController.popBackStack()
+                }
+                //Llamar a la función proporcionada para guardar los datos
+                //onUserCreated(username, password)
 
             },
             modifier = Modifier.fillMaxWidth()
         ) {
             Text(text = "Crear Usuario")
+        }
+        if (error) {
+            Text(
+                text = "Ingrse su usuario o contraseña",
+                color = MaterialTheme.colorScheme.error,
+                modifier = Modifier.padding(top = 8.dp)
+            )
         }
     }
 }
@@ -94,6 +112,6 @@ fun crearUsuario(onUserCreated: (String, String) -> Unit) {
 @Composable
 fun GreetingPreview3() {
     Lab3Theme {
-
+        crearUsuario(navController = rememberNavController())
     }
 }

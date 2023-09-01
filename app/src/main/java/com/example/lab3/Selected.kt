@@ -88,7 +88,7 @@ class Selected : ComponentActivity() {
     @Composable
     fun GreetingPreview() {
         Lab3Theme {
-            Isesion()
+            ShowImage()
         }
     }
 }

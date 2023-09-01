@@ -37,6 +37,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.lab3.ui.theme.Lab3Theme
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.ui.res.painterResource
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
@@ -46,16 +47,13 @@ class lab3APP : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         lateinit var navController: NavHostController
         super.onCreate(savedInstanceState)
+
         setContent {
+
             Lab3Theme {
                 navController = rememberNavController()
                 setupNavGraph(navController = navController)
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Isesion()
-                }
+
             }
         }
     }
@@ -66,7 +64,7 @@ class lab3APP : ComponentActivity() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Isesion() {
+fun Isesion(navController:NavController) {
     var pantallalog by remember { mutableStateOf(0) }
 
     // Agregar variables para almacenar datos de usuario y contraseña
@@ -77,7 +75,12 @@ fun Isesion() {
     var passwordInput by remember { mutableStateOf("") }
     var showError by remember { mutableStateOf(false) }
 
+    Surface(
 
+        modifier = Modifier.fillMaxSize(),
+        color = MaterialTheme.colorScheme.background
+    ) {
+    }
 
     Column(
         modifier = Modifier
@@ -130,9 +133,14 @@ fun Isesion() {
 
         Button(
             onClick = {
-                pantallalog = 2
+                navController.navigate(route = Screens.SignIn.passUserAndPassword(
+                    user = "Juan",
+                    password = "123"
+                ))
             },
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier
+                .fillMaxWidth()
+
         ) {
             Text(text = "Crear Usuario")
         }
@@ -158,11 +166,13 @@ fun Isesion() {
 
             }
         }
-        2 -> crearUsuario { newUsername, newPassword ->
+        2 -> println("a")
+            //crearUsuario()
+            /**{ newUsername, newPassword ->
             savedUsername = newUsername
             savedPassword = newPassword
             pantallalog = 0
-        }
+        }**/
 
         3 -> boda()
     }
@@ -170,11 +180,12 @@ fun Isesion() {
 
 
 
-
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     Lab3Theme {
-        Isesion()
+        Isesion(
+            navController = rememberNavController()
+        )
     }
 }
