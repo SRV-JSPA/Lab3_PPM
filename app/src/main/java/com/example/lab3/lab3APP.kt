@@ -57,52 +57,7 @@ class lab3APP : ComponentActivity() {
 }
 
 
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun crearUsuario(onUserCreated: (String, String) -> Unit) {
-    var username by remember { mutableStateOf("") }
-    var password by remember { mutableStateOf("") }
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Text(
-            text = "Crear Usuario",
-            modifier = Modifier.padding(bottom = 16.dp)
-        )
 
-        OutlinedTextField(
-            value = username,
-            onValueChange = { username = it },
-            label = { Text(text = "Ingrese el usuario") },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(bottom = 8.dp)
-        )
-
-        OutlinedTextField(
-            value = password,
-            onValueChange = { password = it },
-            label = { Text(text = "Ingrese la contraseña") },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(bottom = 16.dp)
-        )
-
-        Button(
-            onClick = {
-                // Llamar a la función proporcionada para guardar los datos
-                onUserCreated(username, password)
-            },
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text(text = "Crear Usuario")
-        }
-    }
-}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -185,23 +140,25 @@ fun Isesion() {
             )
         }
 
-        when (pantallalog) {
-            1 -> menu { selectedMenuItem ->
 
-                when (selectedMenuItem) {
-                    1 -> {pantallalog =3}
-                    2 -> {}
+    }
 
-                }
+    when (pantallalog) {
+        1 -> menu { selectedMenuItem ->
+
+            when (selectedMenuItem) {
+                1 -> {pantallalog = 3}
+                2 -> {}
+
             }
-                2 -> crearUsuario { newUsername, newPassword ->
-                savedUsername = newUsername
-                savedPassword = newPassword
-                pantallalog = 0
-            }
-
-            3 -> boda()
         }
+        2 -> crearUsuario { newUsername, newPassword ->
+            savedUsername = newUsername
+            savedPassword = newPassword
+            pantallalog = 0
+        }
+
+        3 -> boda()
     }
 }
 

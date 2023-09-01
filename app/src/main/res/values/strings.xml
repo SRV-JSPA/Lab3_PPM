@@ -8,4 +8,5 @@
     <string name="title_activity_boda">Boda</string>
     <string name="title_activity_graduacion">Graduacion</string>
     <string name="title_activity_amor">Amor</string>
+    <string name="title_activity_crear_usuario">CrearUsuario</string>
 </resources>
