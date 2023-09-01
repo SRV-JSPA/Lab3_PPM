@@ -81,6 +81,7 @@ fun crearUsuario(onUserCreated: (String, String) -> Unit) {
             onClick = {
                 // Llamar a la función proporcionada para guardar los datos
                 onUserCreated(username, password)
+
             },
             modifier = Modifier.fillMaxWidth()
         ) {

@@ -62,6 +62,8 @@ class lab3APP : ComponentActivity() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Isesion() {
+    var Isesion by remember { mutableStateOf(true) }
+    var cUsuario by remember { mutableStateOf(false) }
     var pantallalog by remember { mutableStateOf(0) }
 
     // Agregar variables para almacenar datos de usuario y contraseña
@@ -125,7 +127,7 @@ fun Isesion() {
 
         Button(
             onClick = {
-                pantallalog = 2
+                cUsuario = true
             },
             modifier = Modifier.fillMaxWidth()
         ) {
@@ -140,71 +142,20 @@ fun Isesion() {
             )
         }
 
+        if(cUsuario){
+            crearUsuario { newUsername, newPassword ->
+                savedUsername = newUsername
+                savedPassword = newPassword
+                cUsuario = false
+
+
+        }
+
 
     }
 
-    when (pantallalog) {
-        1 -> menu { selectedMenuItem ->
 
-            when (selectedMenuItem) {
-                1 -> {pantallalog = 3}
-                2 -> {}
-
-            }
-        }
-        2 -> crearUsuario { newUsername, newPassword ->
-            savedUsername = newUsername
-            savedPassword = newPassword
-            pantallalog = 0
-        }
-
-        3 -> boda()
-    }
 }
-
-@Composable
-fun menu(onMenuItemClick: (Int) -> Unit){
-    Column(
-        modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Button(
-            onClick = { onMenuItemClick(1) },
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text(text = "Boda")
-        }
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        Button(
-            onClick = { onMenuItemClick(2) },
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text(text = "Amor")
-        }
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        Button(
-            onClick = { onMenuItemClick(2) },
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text(text = "Graduación")
-        }
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        Button(
-            onClick = { onMenuItemClick(2) },
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text(text = "Cumpleaños")
-        }
-
-
-    }
 }
 
 
@@ -213,10 +164,5 @@ fun menu(onMenuItemClick: (Int) -> Unit){
 
 
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    Lab3Theme {
-        Isesion()
-    }
-}
+
+
