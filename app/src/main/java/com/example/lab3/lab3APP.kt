@@ -38,13 +38,18 @@ import androidx.compose.ui.unit.sp
 import com.example.lab3.ui.theme.Lab3Theme
 import androidx.compose.foundation.Image
 import androidx.compose.ui.res.painterResource
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 
 class lab3APP : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        lateinit var navController: NavHostController
         super.onCreate(savedInstanceState)
         setContent {
             Lab3Theme {
-
+                navController = rememberNavController()
+                setupNavGraph(navController = navController)
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
@@ -62,8 +67,6 @@ class lab3APP : ComponentActivity() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Isesion() {
-    var Isesion by remember { mutableStateOf(true) }
-    var cUsuario by remember { mutableStateOf(false) }
     var pantallalog by remember { mutableStateOf(0) }
 
     // Agregar variables para almacenar datos de usuario y contraseña
@@ -127,7 +130,7 @@ fun Isesion() {
 
         Button(
             onClick = {
-                cUsuario = true
+                pantallalog = 2
             },
             modifier = Modifier.fillMaxWidth()
         ) {
@@ -142,27 +145,36 @@ fun Isesion() {
             )
         }
 
-        if(cUsuario){
-            crearUsuario { newUsername, newPassword ->
-                savedUsername = newUsername
-                savedPassword = newPassword
-                cUsuario = false
-
-
-        }
-
 
     }
 
 
+    when (pantallalog) {
+        1 -> menu { selectedMenuItem ->
+
+            when (selectedMenuItem) {
+                1 -> {pantallalog = 3}
+                2 -> {}
+
+            }
+        }
+        2 -> crearUsuario { newUsername, newPassword ->
+            savedUsername = newUsername
+            savedPassword = newPassword
+            pantallalog = 0
+        }
+
+        3 -> boda()
+    }
 }
+
+
+
+
+@Preview(showBackground = true)
+@Composable
+fun GreetingPreview() {
+    Lab3Theme {
+        Isesion()
+    }
 }
-
-
-
-
-
-
-
-
-
